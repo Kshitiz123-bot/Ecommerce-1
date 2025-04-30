@@ -1,0 +1,129 @@
+.admin-dashboard {
+  padding-top: 20px;
+  min-height: calc(100vh - 60px); /* Account for navbar height */
+  margin-bottom: 60px; /* Make space for footer */
+  background-color: #f8f9fa;
+}
+
+.admin-container {
+  padding-bottom: 100px; /* Extra padding at bottom to avoid footer overlap */
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 20px 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  background-color: #343a40;
+  color: #fff;
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #f8f9fa;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #007bff;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  background-color: rgba(0, 123, 255, 0.25);
+  border-left: 3px solid #007bff;
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-heading {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.75rem 1rem;
+}
+
+/* Main content wrapper */
+.main-content {
+  padding-bottom: 80px; /* Extra space for footer */
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin panel header and title */
+.admin-header {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin tables */
+.admin-table {
+  white-space: nowrap;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table thead {
+  background-color: #f8f9fa;
+}
+
+.admin-table .actions {
+  width: 150px;
+}
+
+/* Admin forms */
+.admin-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Override site footer for admin pages */
+.admin-page-footer {
+  margin-top: 60px; /* Add space between content and footer */
+  position: relative; /* Ensure footer is in document flow */
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+  .sidebar {
+    position: static;
+    height: auto;
+    box-shadow: none;
+    margin-bottom: 20px;
+  }
+  
+  .admin-dashboard {
+    padding-top: 10px;
+    margin-bottom: 30px;
+  }
+} 

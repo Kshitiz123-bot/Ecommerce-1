@@ -1,0 +1,18 @@
+
+pip install -r requirements.txt
+python -m venv venv
+python -m pip install mysqlclient Pillow Django djangorestframework django-cors-headers twilio
+py -m pip install mysqlclient
+
+
+py manage.py createsuperuser
+
+$env:NODE_OPTIONS='--openssl-legacy-provider'; npm start
+
+Frontend:-
+cd client; $env:NODE_OPTIONS='--openssl-legacy-provider'; powershell -ExecutionPolicy Bypass -Command "npm start"
+
+
+Backend:-
+py manage.py migrate ;
+py manage.py runserver

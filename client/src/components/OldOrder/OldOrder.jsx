@@ -2,6 +2,7 @@ import Axios from 'axios'
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {domain} from '../../env'
+import './OldOrder.css';
 
 const OldOrders = () => {
     const token = window.localStorage.getItem('token')

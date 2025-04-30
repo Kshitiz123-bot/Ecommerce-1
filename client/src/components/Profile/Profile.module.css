@@ -6,8 +6,10 @@
     overflow: hidden;
     width: 100%;
     text-align: center;
-    height: 368px;
+    height: 380px;
     border: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .profileCard3 .backgroundBlock {
@@ -29,12 +31,12 @@
 
 .profileCard3 .cardContent {
     width: 100%;
-    padding: 15px 25px;
+    padding: 35px 25px 15px;
     color: #232323;
     float: left;
     background: #efefef;
     height: 50%;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 10px 10px;
     position: relative;
     z-index: 9999;
 }
@@ -51,18 +53,27 @@
     transform: rotate(-13deg);
 }
 
-.profileCard3 .profile {
-    border-radius: 50%;
+.profileThumbBlock {
     position: absolute;
-    bottom: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
     left: 50%;
-    max-width: 100px;
-    opacity: 1;
-    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(255, 255, 255, 1);
-    -webkit-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
+    top: 50%;
+    transform: translate(-50%, -75%);
     z-index: 99999;
+    background-color: #fff;
+    padding: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 3px solid #fff;
+}
+
+.profileCard3 .profile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .profileCard3 h2 {
@@ -75,10 +86,46 @@
     display: block;
     font-size: 15px;
     margin-top: 10px;
+    color: #666;
 }
 
 .profileCard3 h3 {
     margin: 0 0 5px;
     font-weight: 400;
     font-size: 14px;
+    color: #555;
+}
+
+.updateBtn {
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.updateBtn:hover {
+    background-color: #3c5aa8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.uploadBtn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.uploadBtn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

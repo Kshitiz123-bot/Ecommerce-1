@@ -54,63 +54,92 @@ const Profile = () => {
 
     return (
         <div className="container">
-            <div className="row m-5 no-gutters shadow-lg">
-                <div className="col-md-4 bg-white p-5">
-                    <div className={`card ${styles.profileCard3}`}>
+            <div className="row m-5 no-gutters shadow-lg rounded">
+                <div className="col-md-4 bg-white p-4">
+                    <div className={styles.profileCard3}>
                         <div className={styles.backgroundBlock}>
                             <img
-                                src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                alt="profile-sample1" className={styles.background}/>
+                                src={profile?.image ? `${domain}${profile.image}` : "https://via.placeholder.com/150"}
+                                alt="profile-background" className={styles.background}/>
                         </div>
-                        <div className="profile-thumb-block">
-                            <img src={`${domain}${profile?.image}`} alt="profile"
-                                 className={styles.profile}/>
+                        <div className={styles.profileThumbBlock}>
+                            <img 
+                                src={profile?.image ? `${domain}${profile.image}` : "https://via.placeholder.com/150"} 
+                                alt="profile"
+                                className={styles.profile}/>
                         </div>
                         <div className={styles.cardContent}>
-                            <h2>{profile?.user.first_name + " "} {profile?.user.last_name}
-                                <small>{profile?.user.username.toUpperCase()}</small></h2>
-                            <h3 className="text-secondary ">{profile?.user.email}</h3>
+                            <h2>{profile?.user.first_name || ""} {profile?.user.last_name || ""}
+                                <small>{profile?.user.username ? profile.user.username.toUpperCase() : ""}</small>
+                            </h2>
+                            <h3>{profile?.user.email || ""}</h3>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-8 bg-white p-5">
                     <form method="POST" encType="multipart/form-data">
                         <fieldset className="form-group">
-                            <legend className="border-bottom mb-4">Profile Update</legend>
-                            <div className="form-group">
-                                <label>Upload Profile Picture</label>
-                                <div className="row">
-                                    <div className="col">
-                                        <input onChange={(e) => setImage(e.target.files[0])} type="file"
-                                               className="form-control"/>
+                            <legend className="border-bottom mb-4 text-primary">Profile Update</legend>
+                            <div className="form-group mb-4">
+                                <label className="fw-bold mb-2">Upload Profile Picture</label>
+                                <div className="row align-items-center">
+                                    <div className="col-8">
+                                        <input 
+                                            onChange={(e) => setImage(e.target.files[0])} 
+                                            type="file"
+                                            className="form-control"
+                                            accept="image/*"
+                                        />
                                     </div>
-                                    <div className="col">
-                                        <p onClick={uploadImage} className="btn btn-info">Upload</p>
+                                    <div className="col-4">
+                                        <button 
+                                            type="button" 
+                                            onClick={uploadImage} 
+                                            className={styles.uploadBtn}
+                                        >
+                                            Upload
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row form-group pb-3">
-                                <div className="col">
-                                    <label>First Name</label>
-                                    <input type="text" className="form-control"
-                                           onChange={(e) => setFirstname(e.target.value)}
-                                           value={firstname}/>
+                            <div className="row form-group mb-4">
+                                <div className="col-md-6 mb-3 mb-md-0">
+                                    <label className="fw-bold mb-2">First Name</label>
+                                    <input 
+                                        type="text" 
+                                        className="form-control"
+                                        onChange={(e) => setFirstname(e.target.value)}
+                                        value={firstname || ""}
+                                    />
                                 </div>
-                                <div className="col">
-                                    <label>Last Name</label>
-                                    <input type="text" className="form-control"
-                                           onChange={(e) => setLastname(e.target.value)}
-                                           value={lastname}/>
+                                <div className="col-md-6">
+                                    <label className="fw-bold mb-2">Last Name</label>
+                                    <input 
+                                        type="text" 
+                                        className="form-control"
+                                        onChange={(e) => setLastname(e.target.value)}
+                                        value={lastname || ""}
+                                    />
                                 </div>
                             </div>
-                            <div className="form-group pb-3">
-                                <label>Email</label>
-                                <input type="email" className="form-control" onChange={(e) => setEmail(e.target.value)}
-                                       value={email}/>
+                            <div className="form-group mb-4">
+                                <label className="fw-bold mb-2">Email</label>
+                                <input 
+                                    type="email" 
+                                    className="form-control" 
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={email || ""}
+                                />
                             </div>
                         </fieldset>
-                        <div className="form-group pb-3">
-                            <p className="btn btn-outline-danger" onClick={updateData}>Update</p>
+                        <div className="form-group mt-4">
+                            <button 
+                                type="button" 
+                                className={styles.updateBtn} 
+                                onClick={updateData}
+                            >
+                                Update Profile
+                            </button>
                         </div>
                     </form>
                 </div>

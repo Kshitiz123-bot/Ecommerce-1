@@ -1,0 +1,174 @@
+.order-page-container {
+    background-color: #f8f9fa;
+    min-height: 80vh;
+    padding: 20px 0;
+}
+
+.page-title {
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Order Summary Card Styles */
+.order-summary-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(56, 55, 55, 0.1);
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.order-summary-card .card-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    padding: 15px 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+}
+
+.product-name {
+    font-weight: 500;
+    color: #212529;
+}
+
+.subtotal {
+    font-weight: 600;
+    color: #28a745;
+}
+
+.table-footer {
+    background-color: #f8f9fa;
+}
+
+.total-row {
+    border-top: 2px solid #dee2e6;
+}
+
+.total-row th {
+    padding: 15px;
+}
+
+.total-amount {
+    font-size: 1.2rem;
+    color: #dc3545;
+}
+
+.card-footer {
+    background-color: #fff;
+    border-top: 1px solid #e9ecef;
+    padding: 15px 20px;
+}
+
+/* Checkout Card Styles */
+.checkout-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(58, 57, 57, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.checkout-card .card-header {
+    background: linear-gradient(135deg, #28a745, #218838);
+    padding: 15px 20px;
+}
+
+.checkout-form {
+    padding: 10px 0;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 4px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.order-button {
+    margin-top: 20px;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.order-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .col-lg-7, .col-lg-5 {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .order-button {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .card-header h4 {
+        font-size: 1.2rem;
+    }
+} 
+
+/* Card Payment Form Styles */
+.card-payment-form {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+#card-element {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: box-shadow 0.15s ease;
+}
+
+#card-element:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.card-payment-form .btn {
+    margin-top: 10px;
+    font-weight: 600;
+}

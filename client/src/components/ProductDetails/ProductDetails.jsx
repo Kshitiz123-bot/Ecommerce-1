@@ -11,6 +11,7 @@ const ProductDetails = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
     const [categoryProducts, setCategoryProducts] = useState(null);
+    const [notification, setNotification] = useState({show: false, message: '', type: ''});
 
     useEffect(() => {
         const getProduct = async () => {
@@ -28,6 +29,16 @@ const ProductDetails = () => {
         };
         getProduct().then().catch();
     }, [id]);
+
+    // Hide notification after 3 seconds
+    useEffect(() => {
+        if (notification.show) {
+            const timer = setTimeout(() => {
+                setNotification({...notification, show: false});
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [notification]);
 
     const getCategoryData = async (id) => {
         await Axios({
@@ -53,16 +64,29 @@ const ProductDetails = () => {
                 dispatch({
                     type: "ADD_RELOAD_PAGE_DATA",
                     reloadPage: response
-                })
+                });
+                setNotification({
+                    show: true,
+                    message: response.data.message || 'Product added to cart',
+                    type: response.data.error ? 'danger' : 'success'
+                });
             })
         ) : (
             history.push("/login")
         )
-
     }
 
     return (
         <div className="container">
+            {/* Notification Message */}
+            {notification.show && (
+                <div className={`alert alert-${notification.type} alert-dismissible fade show position-fixed`} 
+                     style={{top: '80px', left: '50%', transform: 'translateX(-50%)', zIndex: 1050, minWidth: '300px', textAlign: 'center'}}>
+                    {notification.message}
+                    <button type="button" className="btn-close" onClick={() => setNotification({...notification, show: false})}></button>
+                </div>
+            )}
+            
             {product !== null && (
                 <>
                     <div className="container" style={{marginTop: '20px'}}>
@@ -74,8 +98,18 @@ const ProductDetails = () => {
                                             {' '}
                                             <img
                                                 className="w-75 mx-auto d-block"
-                                                src={product.image}
-                                                alt=""
+                                                src={product.image ? 
+                                                    (product.image.startsWith('http') ? 
+                                                        product.image : 
+                                                        product.image.startsWith('/media/') ?
+                                                            `${domain}${product.image}` :
+                                                            `${domain}/media/products/${product.image}`
+                                                    ) : 
+                                                    `${domain}/media/products/default.jpg`
+                                                }
+                                                alt={product.title}
+                                                style={{ maxHeight: '400px', objectFit: 'contain' }}
+                                                onError={(e) => e.target.src = `${domain}/media/products/default.jpg`}
                                             />
                                         </div>
                                         {' '}
@@ -93,21 +127,15 @@ const ProductDetails = () => {
                                                     {' '}
                                                     Price:{' '}
                                                     <del className="text-danger">
-                                                        {product.market_price}$
+                                                        {product.market_price}NPR
                                                     </del>
                                                     {' '}
                                                     <i className="text-success">
-                                                        {product.selling_price}$
+                                                        {product.selling_price}NPR
                                                     </i>
                                                 </h5>
                                             </div>
                                             <br/>
-                                            <span className="monthly">
-                        {(product.selling_price / 12).toFixed(2)}$ / monthly{' '}
-                                                <a href="/" className="btn-link">
-                          installment{' '}
-                        </a>
-                      </span>
                                         </div>
 
                                         <div className="mb-4">

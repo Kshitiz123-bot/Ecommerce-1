@@ -5,18 +5,25 @@ import {domain, header2} from '../../env';
 import styles from './Login.module.css';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [loginId, setLoginId] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
 
+    const validatePhoneNumber = (phone) => {
+        const phoneRegex = /^\d{10}$/;  // Validates 10-digit phone numbers
+        return phoneRegex.test(phone);
+    };
+
     const loginButton = (e) => {
         e.preventDefault();
+        setErrors({});
+
         Axios({
             url: `${domain}/api/login/`,
             method: 'post',
             headers: header2,
             data: {
-                username: username,
+                login_id: loginId,
                 password: password,
             },
         })
@@ -25,9 +32,8 @@ const Login = () => {
                 window.location.href = '/';
             })
             .catch((error) => {
-                console.log(error.response)
                 if (error.response.status === 400)
-                    setErrors({[Object.keys(error.response.data)[0]]: 'Username OR Password is invalid Try Again !!'});
+                    setErrors({[Object.keys(error.response.data)[0]]: 'Username/Phone number OR Password is invalid. Try Again!'});
                 else
                     setErrors({'error': 'Internal Server Error Try Again!!!'});
             });
@@ -43,10 +49,13 @@ const Login = () => {
                             <div className="form-group pb-3">
                                 <input
                                     type="text"
-                                    placeholder="Username"
+                                    placeholder="Username or Phone Number"
                                     className="form-control"
-                                    onChange={(e) => setUsername(e.target.value)}
+                                    value={loginId}
+                                    onChange={(e) => setLoginId(e.target.value)}
+                                    required
                                 />
+                                <small className="text-muted">Enter your username or registered phone number</small>
                             </div>
                             <div className="form-group pb-3">
                                 <input
@@ -55,6 +64,11 @@ const Login = () => {
                                     className="form-control"
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                <div className="text-right mt-2">
+                                    <Link to="/forgot-password" className="forgot-password-link">
+                                        Forgot Password?
+                                    </Link>
+                                </div>
                             </div>
                             <div className="pb-2">
                                 <button

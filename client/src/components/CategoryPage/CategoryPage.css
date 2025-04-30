@@ -1,0 +1,53 @@
+.category-page {
+    min-height: 80vh;
+    background-color: #f8f9fa;
+}
+
+.category-title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.category-page .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.product-grid > div {
+    height: 100%;
+    display: flex;
+}
+
+.product-grid .card {
+    width: 100%;
+    margin: 0;
+}
+
+.product-grid .product_image {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%;
+    background-color: #f8f9fa;
+}
+
+.product-grid .card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}

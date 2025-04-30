@@ -1,69 +1,65 @@
-# Ecommerce
-> #### Ecommerce app made up using django and Reactjs
+# E-commerce Project
 
-## Snapshots
-### Register
-  ![Register](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Register.png?raw=true)
-  <br />
-  
-### Login
-  ![Login](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Login.png?raw=true)
-  <br />
+This is an e-commerce platform built with Django and React.
 
-### Profile
-  ![Profile](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Profile.png?raw=true)
-  <br />
+## Features
+- User authentication and authorization
+- Product catalog
+- Shopping cart functionality
+- Order management
+- Admin dashboard
 
-### HomePage
-  ![HomePage](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/HomePage.png?raw=true)
-  <br />
+## Tech Stack
+- Backend: Django
+- Frontend: React
+- Database: SQLite (Development)
 
-### Pagination
-  ![Pagination](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Pagination.png?raw=true)
-  <br />
+## Setup Instructions
 
+### Backend Setup
+1. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-### Product Detail
-  ![Product Detail](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/ProductDetail.png?raw=true)
-  <br />
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Cart
-  ![Cart](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Cart.png?raw=true)
-  <br />
- 
-### Order
-  ![Order](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/Order.png?raw=true)
-  <br />
+3. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
 
-### Order History
-  ![Order History](https://github.com/Accel-Byte/Ecommerce/blob/main/Images/OrderHistory.png?raw=true)
-  <br />
+4. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
 
-## Prerequisite
-+ Node.js
-+ Django
+### Frontend Setup
+1. Install Node.js dependencies:
+   ```bash
+   cd client
+   npm install
+   ```
 
+2. Start the development server:
+   ```bash
+   npm start
+   ```
 
-## Setup Locally
+## Project Structure
+- `Ecommerce/` - Django project settings
+- `Product/` - Product management app
+- `cart/` - Shopping cart functionality
+- `order/` - Order management
+- `client/` - React frontend
 
-```bash
-git clone https://github.com/Accel-Byte/Ecommerce.git
-cd Ecommerce
-python -m venv venv
-pip install -r requirements.txt
-```
-```python
-python manage.py runserver
-```
-
-🎉 And that's it! You will now be able to visit <a href="http://localhost:3000/">http://localhost:3000/</a> URL and see your application up and running.
-
-
-## Thanks
-+ I'd appreciate a star if you find this helpful.
-
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
+## Contributing
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

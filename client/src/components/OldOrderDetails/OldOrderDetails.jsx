@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom';
 import {domain} from '../../env';
 
+
+
 const OldOrderDetails = () => {
     const token = window.localStorage.getItem('token')
     const {id} = useParams()
@@ -34,8 +36,10 @@ const OldOrderDetails = () => {
                     <th>Total</th>
                     <th>Email</th>
                     <th>Mobile</th>
-                    <th>discount</th>
+                    <th>Discount</th>
                     <th>Products</th>
+                    <th>Payment Status</th>
+                    <th>Order Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,11 +48,19 @@ const OldOrderDetails = () => {
                         details != null && (
                             <>
                                 <td>{details.date}</td>
-                                <td>{"$" + details.total} </td>
+                                <td>{"NPR " + details.total} </td>
                                 <td>{details.email}</td>
                                 <td>{details.mobile}</td>
                                 <td>{details.discount + "%"}</td>
                                 <td>{details.cart_product?.length}</td>
+                                <td>
+                                    <span className={`badge ${details.payment_complete ? 'bg-success' : 'bg-warning'}`}>
+                                        {details.payment_complete ? 'Paid' : 'Pending'}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className="badge bg-info">{details.order_status}</span>
+                                </td>
                             </>
                         )
                     }
@@ -72,9 +84,9 @@ const OldOrderDetails = () => {
                         <tr key={i}>
                             <td>{i + 1}</td>
                             <td>{data.product[0].title}</td>
-                            <td>{"$" + data.price}</td>
+                            <td>{"NPR " + data.price}</td>
                             <td>{data.quantity}</td>
-                            <td>{"$" +data.subtotal}</td>
+                            <td>{"NPR " +data.subtotal}</td>
                         </tr>
                     ))
                 }

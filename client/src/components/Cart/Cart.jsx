@@ -106,9 +106,9 @@ const CartPage = () => {
                                 <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td>{data.product[0].title}</td>
-                                    <td>{"$" +data.price}</td>
+                                    <td>{"NPR " +data.price}</td>
                                     <td>{data.quantity}</td>
-                                    <td>{"$" +data.subtotal}</td>
+                                    <td>{"NPR " +data.subtotal}</td>
                                     <td>
                                         <button onClick={() => editCartProduct(data.id)} className="btn btn-info">-
                                         </button>

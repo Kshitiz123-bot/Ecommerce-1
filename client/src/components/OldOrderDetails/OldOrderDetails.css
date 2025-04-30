@@ -1,0 +1,108 @@
+/* OldOrderDetails.css */
+
+.container {
+    max-width: 80%;
+    margin: 40px auto;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Navbar Fix */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0056b3;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease-in-out;
+}
+
+tbody tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+    cursor: pointer;
+}
+
+tbody td {
+    padding: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+td:first-child {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+h1 {
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    thead th, tbody td {
+        padding: 10px;
+    }
+}
